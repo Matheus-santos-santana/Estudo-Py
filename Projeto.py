@@ -14,9 +14,22 @@ def fazer_login(usuario_cadastro, senha_cadastrada):
     else:
         print("Usuário ou senha incorretos. Tente novamente.")
 
+import datetime
+
+hora_atual=datetime.datetime.now() .hour
+
+if 4 <= hora_atual < 12:
+    parte_do_dia = "Bom dia"
+
+elif 12 <= hora_atual <18:
+    parte_do_dia = "Boa Tarde"
+    
+else:
+    parte_do_dia = "Boa Noite"
+
 def main():
     while True:
-        nome = input("Estimo que esteja bem, favor, digite seu nome: ")
+        nome = input(f"{parte_do_dia} Estimo que esteja bem, favor, digite seu nome: ")
 
         resposta = input(f"Olá {nome}, você está entrando em um projeto de teste para Commit. Você deseja continuar? ")
 
@@ -32,7 +45,7 @@ def main():
                 print("Agora tente acessar o projeto com seu login.\n")
                 fazer_login(usuario_cadastro, senha_cadastrada)
             else:
-                print("Você é menor de idade, infelizmente não pode prosseguir.")
+                print("Acesso negado, Esse projeto é somente para Maiores de 18 Anos, Obrigado!.")
 
         elif resposta.lower() == "não":
             print("Ótimo, agradecemos a sua curiosidade. Obrigado!")
